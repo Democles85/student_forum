@@ -6,7 +6,8 @@ import {
   Icon,
   Image,
   Link,
-  Text
+  Text,
+  Tooltip
 } from '@chakra-ui/react'
 import { ArrowRightIcon } from '@chakra-ui/icons'
 import React, { useState, useEffect } from 'react'
@@ -20,6 +21,17 @@ const Author = ({ author }) => {
     const randomIndex = Math.floor(Math.random() * backgroundColors.length)
     setAvatarBadgeBackground(backgroundColors[randomIndex])
   }, [])
+
+  // Check what color was chosen and set the tooltip to, respectively, offline, away, or online
+  const avatarBadgeTooltip = () => {
+    if (avatarBadgeBackground === 'red.500') {
+      return 'Offline'
+    } else if (avatarBadgeBackground === 'orange.500') {
+      return 'Away'
+    } else {
+      return 'Online'
+    }
+  }
 
   return (
     <div
@@ -43,14 +55,16 @@ const Author = ({ author }) => {
           src={author.photo.url}
           style={{ border: '3px solid #fff' }}
         >
-          <AvatarBadge
-            boxSize="30px"
-            style={{
-              border: '3px solid #fff',
-              left: '55px'
-            }}
-            bg={avatarBadgeBackground}
-          />
+          <Tooltip label={avatarBadgeTooltip()} placement={'right'}>
+            <AvatarBadge
+              boxSize="30px"
+              style={{
+                border: '3px solid #fff',
+                left: '55px'
+              }}
+              bg={avatarBadgeBackground}
+            />
+          </Tooltip>
         </Avatar>
       </Box>
       <h3 className={'text-white my-4 text-xl font-bold'}>{author.name}</h3>

@@ -7,7 +7,8 @@ import {
   Author,
   Comments,
   CommentsForm,
-  Loader
+  Loader,
+  QuizCard
 } from '../../components'
 import { AdjacentPosts } from '../../sections'
 import { useRouter } from 'next/router'
@@ -38,6 +39,7 @@ const PostDetails = ({ post }) => {
                 categories={post.categories.map((category) => category.slug)}
               />
               <Categories />
+              <QuizCard />
             </div>
           </div>
         </div>
