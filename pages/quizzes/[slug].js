@@ -10,7 +10,7 @@ import {
   Alert,
   AlertIcon
 } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
@@ -23,22 +23,24 @@ const Quiz = () => {
   const { slug } = router.query
   const quiz = data.quizzes.find((quiz) => quiz.slug === slug)
 
-  // TODO: Add quiz questions
   const questions = data.quizzes.reduce(
     (prev, next) => prev.concat(next.questions),
     []
   )
 
-  const answers = questions.reduce(
-    (prev, next) => prev.concat(next.answers),
-    []
-  )
+  // Get the questions array length for the current quiz slug
+  const questionsLength = questions.filter(
+    (question) => question.slug === `${slug}-question-${question.id}`
+  ).length
 
+  // States
   const [currentAnswer, setCurrentAnswer] = useState([])
   const [colorScheme, setColorScheme] = useState([
     { color: 'gray', id: 0, questionID: 0 }
   ])
-  const [isDisabled, setIsDisabled] = useState(false)
+  const [score, setScore] = useState(0)
+  const [showAlert, setShowAlert] = useState(false)
+  const [showScore, setShowScore] = useState(false)
 
   const handleCurrentAnswer = (
     answerID,
@@ -75,7 +77,7 @@ const Quiz = () => {
         colorScheme.map((color) => {
           if (color.questionID === questionID) {
             return {
-              color: 'teal',
+              color: 'blue',
               id: answerID,
               questionID: questionID
             }
@@ -87,16 +89,61 @@ const Quiz = () => {
       // Add the color to the color scheme array and remove the previous color from the array if the another answer is selected
       setColorScheme([
         ...colorScheme,
-        { color: 'teal', id: answerID, questionID: questionID }
+        { color: 'blue', id: answerID, questionID: questionID }
       ])
     }
   }
 
   // TODO: Add score to quiz
+  const handleScore = (answers) => {
+    let score = 0
 
-  console.log('Answer Array: ', currentAnswer)
-  // console.log the currentAnswer colorScheme
-  console.log('Color Array: ', colorScheme)
+    if (answers.length < questionsLength) {
+      setShowAlert(true)
+      setShowScore(true)
+      setTimeout(() => {
+        setShowScore(false)
+      }, 3000)
+
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 3000)
+      return
+    }
+
+    setShowScore(true)
+
+    answers.map((answer) => {
+      // If the answer is correct, increase the score by 1
+      if (answer.correctAnswer === true) {
+        score++
+      }
+    }),
+      setScore(score)
+
+    colorScheme.map((color) => {
+      // If the answer is correct, change the color to green
+      answers.map((answer) => {
+        if (answer.correctAnswer === true) {
+          if (color.id === answer.answerID) {
+            return (color.color = 'green')
+          }
+        }
+      }),
+        // If the answer is incorrect, change the color to red
+        answers.map((answer) => {
+          if (answer.correctAnswer === false) {
+            if (color.id === answer.answerID) {
+              return (color.color = 'red')
+            }
+          }
+        })
+    }),
+      setColorScheme(colorScheme)
+  }
+
+  // console.log('Answer Array: ', currentAnswer)
+  // console.log('Color Array: ', colorScheme)
 
   if (!quiz) {
     return (
@@ -149,10 +196,12 @@ const Quiz = () => {
                 <Box key={question.id}>
                   <List>
                     <ListItem>
-                      <Text
-                        fontSize={'xl'}
-                        fontWeight={'semibold'}
-                      >{`${question.id}. ${question.question}`}</Text>
+                      <Box display={'flex'} flexDir={'row'} pb={3}>
+                        <Text fontSize={'xl'} fontWeight={'semibold'} pr={2}>
+                          {question.id}.
+                        </Text>
+                        <Text fontSize={'xl'}>{question.question}</Text>
+                      </Box>
                     </ListItem>
                   </List>
                   <Box>
@@ -180,7 +229,18 @@ const Quiz = () => {
                               // console.log(answer.id, answer.slug, question.id, answer.correct)
                             }}
                           >
-                            {answer.id}: {answer.answer}
+                            <Box display={'flex'} flexDir={'row'}>
+                              <Text
+                                fontSize={'lg'}
+                                fontWeight={'semibold'}
+                                pr={2}
+                              >
+                                {answer.letter})
+                              </Text>
+                              <Text fontSize={'lg'} fontWeight={'medium'}>
+                                {answer.answer}
+                              </Text>
+                            </Box>
                           </Button>
                         </Box>
                       )
@@ -191,9 +251,69 @@ const Quiz = () => {
             }
           })}
           <Box pt={10} pb={5} align={'center'}>
-            <Button width={'60%'} variant={'outline'} colorScheme={'teal'}>
+            <Button
+              width={'40%'}
+              variant={'solid'}
+              size={'lg'}
+              fontSize={'26px'}
+              colorScheme={'teal'}
+              onClick={() => {
+                handleScore(currentAnswer)
+              }}
+            >
               Submit
             </Button>
+          </Box>
+          <Box py={5} display={'flex'} justifyContent={'center'}>
+            <AnimatePresence>
+              {showAlert && (
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1, delay: 0.5 }}
+                  exit={{ y: 10, opacity: 0, duration: 0.5 }}
+                  transition={'all 0.5s ease-in-out'}
+                >
+                  <Alert
+                    status={'warning'}
+                    variant={'solid'}
+                    borderRadius={'lg'}
+                    justifyContent={'center'}
+                    w={'-moz-fit-content'}
+                  >
+                    <AlertIcon />
+                    You must answer all questions to submit your score.
+                  </Alert>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </Box>
+          <Box
+            py={5}
+            bg={'teal.500'}
+            borderRadius={'lg'}
+            boxShadow={'0px 0px 5px rgba(0, 0, 0, 0.2)'}
+          >
+            <Text
+              align={'center'}
+              fontSize={'24px'}
+              fontWeight={'semibold'}
+              color={'white'}
+            >
+              Score:{' '}
+              <AnimatePresence>
+                {showScore && (
+                  <motion.span
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1, delay: 0.5 }}
+                    exit={{ y: 10, opacity: 0, duration: 0.5 }}
+                    transition={'all 0.5s ease-in-out'}
+                  >
+                    {score}
+                  </motion.span>
+                )}
+              </AnimatePresence>{' '}
+              / {questionsLength}
+            </Text>
           </Box>
         </Box>
       </Box>

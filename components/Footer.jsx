@@ -39,76 +39,65 @@ const Footer = () => {
             <Text
               fontSize={'18px'}
               fontWeight={'semibold'}
-              boxShadow={'0px 0px 10px rgba(0, 0, 0, 0.2)'}
+              boxShadow={'0 8px 32px 0 rgba( 31, 38, 135, 0.37 )'}
+              bg={'rgba( 255, 255, 255, 0.25 )'}
+              backdropFilter={'blur( 4px )'}
+              style={{ WebkitBackdropFilter: 'blur( 4px )' }}
+              border={'1px solid rgba( 255, 255, 255, 0.18 )'}
               borderRadius={'lg'}
             >
-              Sixhei
+              Sixhei Tartari
             </Text>
           </GridItem>
           <GridItem w={'100%'}>
             <Text
               fontSize={'18px'}
               fontWeight={'semibold'}
-              boxShadow={'0px 0px 10px rgba(0, 0, 0, 0.2)'}
+              boxShadow={'0 8px 32px 0 rgba( 31, 38, 135, 0.37 )'}
+              bg={'rgba( 255, 255, 255, 0.25 )'}
+              backdropFilter={'blur( 4px )'}
+              style={{ WebkitBackdropFilter: 'blur( 4px )' }}
+              border={'1px solid rgba( 255, 255, 255, 0.18 )'}
               borderRadius={'lg'}
             >
-              Denis
+              Denis Demaj
             </Text>
           </GridItem>
           <GridItem w={'100%'}>
             <Text
               fontSize={'18px'}
               fontWeight={'semibold'}
-              boxShadow={'0px 0px 10px rgba(0, 0, 0, 0.2)'}
+              boxShadow={'0 8px 32px 0 rgba( 31, 38, 135, 0.37 )'}
+              bg={'rgba( 255, 255, 255, 0.25 )'}
+              backdropFilter={'blur( 4px )'}
+              style={{ WebkitBackdropFilter: 'blur( 4px )' }}
+              border={'1px solid rgba( 255, 255, 255, 0.18 )'}
               borderRadius={'lg'}
             >
-              Enid
+              Enid Muharremi
             </Text>
           </GridItem>
           <GridItem w={'100%'}>
             <Text
               fontSize={'18px'}
               fontWeight={'semibold'}
-              boxShadow={'0px 0px 10px rgba(0, 0, 0, 0.2)'}
+              boxShadow={'0 8px 32px 0 rgba( 31, 38, 135, 0.37 )'}
+              bg={'rgba( 255, 255, 255, 0.25 )'}
+              backdropFilter={'blur( 4px )'}
+              style={{ WebkitBackdropFilter: 'blur( 4px )' }}
+              border={'1px solid rgba( 255, 255, 255, 0.18 )'}
               borderRadius={'lg'}
             >
-              Arlind
+              Arlind Kojanaj
             </Text>
           </GridItem>
         </Grid>
       </Box>
-      <Box
-        bg={'white'}
-        p={5}
-        borderRadius={'lg'}
-        boxShadow={'0px 0px 5px rgba(0, 0, 0, 0.2)'}
-      >
-        <Text fontSize={'20px'} fontWeight={'semibold'} color={'#000'} pb={5}>
-          You want to upload your own research?
-        </Text>
-        {/* Button to direct to /contact page */}
-        <Button
-          onClick={() => {
-            location.href = '/contact'
-          }}
-          className={
-            'transition duration-600 transform hover:-translate-y-1 hover:scale-110'
-          }
-          colorScheme={'teal'}
-        >
-          <Link _hover={{ textDecoration: 'none' }}>
-            <Text color={'white'} fontSize={'lg'} fontWeight={'bold'}>
-              Contact Us{' '}
-            </Text>
-          </Link>
 
-          <Box ml={3}>
-            <Icon name="external-link" as={ArrowRightIcon} />
-          </Box>
-        </Button>
-      </Box>
       <Box pt={5}>
-        <Text>&copy; {new Date().getFullYear()} Student Forum</Text>
+        <Text fontWeight={'semibold'}>
+          &copy; {new Date().getFullYear()} Student Forum
+        </Text>
       </Box>
     </Box>
   )

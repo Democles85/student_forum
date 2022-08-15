@@ -1,3 +1,14 @@
+import { Box, Text } from '@chakra-ui/react'
+import Image from 'next/image'
+import Code from '../components/Code'
+
+// Image Imports
+import javascript_1 from '../public/images/quiz_images/javascript/console_log_1.png'
+import javascript_2 from '../public/images/quiz_images/javascript/console_log_2.png'
+import javascript_3 from '../public/images/quiz_images/javascript/console_log_3.png'
+import javascript_4 from '../public/images/quiz_images/javascript/console_log_4.png'
+import javascript_5 from '../public/images/quiz_images/javascript/array_rotation.png'
+
 const data = {
   quizzes: [
     {
@@ -15,18 +26,21 @@ const data = {
           answers: [
             {
               id: 1.1,
+              letter: 'a',
               slug: 'answer-1.1',
               answer: 'System.out.println("Hello World");  ',
               correct: true
             },
             {
               id: 1.2,
+              letter: 'b',
               slug: 'answer-1.2',
               answer: 'echo("Hello World");',
               correct: false
             },
             {
               id: 1.3,
+              letter: 'c',
               slug: 'answer-1.3',
               answer: 'Console.WriteLine("Hello World");',
               correct: false
@@ -40,12 +54,14 @@ const data = {
           answers: [
             {
               id: 2.1,
+              letter: 'a',
               slug: 'answer-2.1',
               answer: 'E gabuar',
               correct: true
             },
             {
               id: 2.2,
+              letter: 'b',
               slug: 'answer-2.2',
               answer: 'E vertet',
               correct: false
@@ -59,18 +75,21 @@ const data = {
           answers: [
             {
               id: 3.1,
+              letter: 'a',
               slug: 'answer-3.1',
               answer: '// This is a comment  ',
               correct: true
             },
             {
               id: 3.2,
+              letter: 'b',
               slug: 'answer-3.2',
               answer: '@/ This is a comment  ',
               correct: false
             },
             {
               id: 3.3,
+              letter: 'c',
               slug: 'answer-3.3',
               answer: '# This is a comment',
               correct: false
@@ -84,18 +103,21 @@ const data = {
           answers: [
             {
               id: 4.1,
+              letter: 'a',
               slug: 'answer-4.1',
               answer: 'int x = 5; ',
               correct: true
             },
             {
               id: 4.2,
+              letter: 'b',
               slug: 'answer-4.2',
               answer: 'num x = 5 ',
               correct: false
             },
             {
               id: 4.3,
+              letter: 'c',
               slug: 'answer-4.3',
               answer: 'x = 5;',
               correct: false
@@ -109,18 +131,21 @@ const data = {
           answers: [
             {
               id: 5.1,
+              letter: 'a',
               slug: 'answer-5.1',
               answer: 'int x = 5; ',
               correct: true
             },
             {
               id: 5.2,
+              letter: 'b',
               slug: 'answer-5.2',
               answer: 'num x = 5 ',
               correct: false
             },
             {
               id: 5.3,
+              letter: 'c',
               slug: 'answer-5.3',
               answer: 'x = 5;',
               correct: false
@@ -143,19 +168,22 @@ const data = {
           answers: [
             {
               id: 1.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-1.1',
               answer: 'cout << "Hello World";',
               correct: true
             },
             {
               id: 1.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-1.2',
               answer: 'echo("Hello World");',
               correct: false
             },
             {
               id: 1.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-1.3',
               answer: 'Console.WriteLine("Hello World");',
               correct: false
             }
@@ -168,13 +196,15 @@ const data = {
           answers: [
             {
               id: 2.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-2.1',
               answer: 'E gabuar',
               correct: true
             },
             {
               id: 2.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-2.2',
               answer: 'E vertet',
               correct: false
             }
@@ -187,19 +217,22 @@ const data = {
           answers: [
             {
               id: 3.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-3.1',
               answer: '// This is a comment  ',
               correct: true
             },
             {
               id: 3.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-3.2',
               answer: '@/ This is a comment  ',
               correct: false
             },
             {
               id: 3.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-3.3',
               answer: '# This is a comment',
               correct: false
             }
@@ -212,19 +245,22 @@ const data = {
           answers: [
             {
               id: 4.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-4.1',
               answer: 'int x = 5; ',
               correct: true
             },
             {
               id: 4.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-4.2',
               answer: 'num x = 5 ',
               correct: false
             },
             {
               id: 4.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-4.3',
               answer: 'x = 5;',
               correct: false
             }
@@ -238,19 +274,22 @@ const data = {
           answers: [
             {
               id: 5.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-5.1',
               answer: '#include <iostream>   ',
               correct: true
             },
             {
               id: 5.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-5.2',
               answer: '#include <iosstring> ',
               correct: false
             },
             {
               id: 5.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-5.3',
               answer: '#include <stream>',
               correct: false
             }
@@ -272,20 +311,23 @@ const data = {
           answers: [
             {
               id: 1.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-1.1',
               answer:
                 'Te ofroje menyra per te siguruar nje prodhimin e nje software qe permbush qellimet per te cilat eshte kerkuar .  ',
               correct: true
             },
             {
               id: 1.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-1.2',
               answer: 'Te mirembaje software-in.',
               correct: false
             },
             {
               id: 1.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-1.3',
               answer: 'Te testoj software-in.',
               correct: false
             }
@@ -298,19 +340,22 @@ const data = {
           answers: [
             {
               id: 2.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-2.1',
               answer: 'analiza,modelimi,implementimi,testimi,mirembajtja',
               correct: true
             },
             {
               id: 2.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-2.2',
               answer: 'analiza,modelimi,implementimi,testimi',
               correct: false
             },
             {
               id: 2.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-2.3',
               answer: 'analiza,modelimi,testimi,mirembajtja',
               correct: false
             }
@@ -323,19 +368,22 @@ const data = {
           answers: [
             {
               id: 3.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-3.1',
               answer: 'Argumentues',
               correct: true
             },
             {
               id: 3.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-3.2',
               answer: 'Linear ',
               correct: false
             },
             {
               id: 3.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-3.3',
               answer: 'Waterfall',
               correct: false
             }
@@ -348,19 +396,22 @@ const data = {
           answers: [
             {
               id: 4.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-4.1',
               answer: 'Black Box ',
               correct: true
             },
             {
               id: 4.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-4.2',
               answer: 'Test Box',
               correct: false
             },
             {
               id: 4.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-4.3',
               answer: 'Test Set Box',
               correct: false
             }
@@ -373,13 +424,15 @@ const data = {
           answers: [
             {
               id: 5.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-5.1',
               answer: 'funksionale dhe jofunksionale',
               correct: true
             },
             {
               id: 5.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-5.2',
               answer: 'te domosdoshme ,jo te domosdoshme ',
               correct: false
             }
@@ -401,19 +454,22 @@ const data = {
           answers: [
             {
               id: 1.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-1.1',
               answer: ' Structured Query Language ',
               correct: true
             },
             {
               id: 1.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-1.2',
               answer: 'Strong Question Language  ',
               correct: false
             },
             {
               id: 1.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-1.3',
               answer: 'Structured Question Language',
               correct: false
             }
@@ -427,19 +483,22 @@ const data = {
           answers: [
             {
               id: 2.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-2.1',
               answer: 'SELECT',
               correct: true
             },
             {
               id: 2.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-2.2',
               answer: 'GET',
               correct: false
             },
             {
               id: 2.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-2.3',
               answer: 'OPEN',
               correct: false
             }
@@ -453,19 +512,22 @@ const data = {
           answers: [
             {
               id: 3.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-3.1',
               answer: 'SELECT * FROM Person  ',
               correct: true
             },
             {
               id: 3.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-3.2',
               answer: 'GET * FROM Person ',
               correct: false
             },
             {
               id: 3.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-3.3',
               answer: 'OPEN * FROM Person ',
               correct: false
             }
@@ -478,19 +540,22 @@ const data = {
           answers: [
             {
               id: 4.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-4.1',
               answer: 'INNER JOIN   ',
               correct: true
             },
             {
               id: 4.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-4.2',
               answer: 'JOINED TABLE',
               correct: false
             },
             {
               id: 4.3,
-              slug: 3,
+              letter: 'c',
+              slug: 'answer-4.3',
               answer: 'JOINED',
               correct: false
             }
@@ -503,13 +568,15 @@ const data = {
           answers: [
             {
               id: 5.1,
-              slug: 1,
+              letter: 'a',
+              slug: 'answer-5.1',
               answer: 'CREATE TABLE emer_tabele',
               correct: true
             },
             {
               id: 5.2,
-              slug: 2,
+              letter: 'b',
+              slug: 'answer-5.2',
               answer: 'CREATE DATABASE TABLE emer_tabele',
               correct: false
             }
@@ -519,128 +586,460 @@ const data = {
     },
     {
       id: 5,
-      name: 'Baze te dhenash',
-      slug: 'db',
-      description: 'Quiz per Baze te Dhenash.',
+      name: 'Javascript',
+      slug: 'js',
+      description: 'Quiz per Javascript.',
       // Questions for the quiz
       questions: [
         {
           id: 1,
-          slug: 'db-question-1',
-          question: 'SQL eshte akronim per:',
+          slug: 'js-question-1',
+          question: (
+            <>
+              <Text fontWeight={'semibold'}>
+                Çfarë shfaq ekzekutimi i kodit të mëposhtëm?
+              </Text>
+              <Box w={'50%'}>
+                <Image src={javascript_1} alt={'javascript-1'} />
+              </Box>
+              {/* <Code>
+                <Text fontSize={'lg'}>
+                  <span style={{ color: '#d19a60' }}>console</span>.
+                  <span style={{ color: '#5fafef', fontWeight: 'bold' }}>
+                    log
+                  </span>
+                  <span style={{ color: '#c678dd' }}>(</span>
+                  <span style={{ color: '#e85352' }}>typeof</span>{' '}
+                  <span style={{ color: '#d19a60' }}>NaN</span>
+                  <span style={{ color: '#c678dd' }}>)</span>;
+                </Text>
+              </Code> */}
+            </>
+          ),
           answers: [
             {
               id: 1.1,
-              slug: 1,
-              answer: ' Structured Query Language ',
-              correct: true
-            },
-            {
-              id: 1.2,
-              slug: 2,
-              answer: 'Strong Question Language  ',
+              letter: 'a',
+              slug: 'answer-1.1',
+              answer: 'NaN',
               correct: false
             },
             {
+              id: 1.2,
+              letter: 'b',
+              slug: 'answer-1.2',
+              answer: 'Number',
+              correct: true
+            },
+            {
               id: 1.3,
-              slug: 3,
-              answer: 'Structured Question Language',
+              letter: 'c',
+              slug: 'answer-1.3',
+              answer: 'String',
+              correct: false
+            },
+            {
+              id: 1.4,
+              letter: 'd',
+              slug: 'answer-1.4',
+              answer: 'Boolean',
               correct: false
             }
           ]
         },
         {
           id: 2,
-          slug: 'db-question-2',
-          question:
-            'Cila shprehje SQL perdoret per te terhequr te dhena nga databaza',
+          slug: 'js-question-2',
+          question: (
+            <>
+              <Text fontWeight={'semibold'}>
+                Çfarë shfaq ekzekutimi i kodit të mëposhtëm?
+              </Text>
+              <Box w={'50%'}>
+                <Image src={javascript_2} alt={'javascript-2'} />
+              </Box>
+              {/* <Code>
+                <Text fontSize={'lg'}>
+                  <span style={{ color: '#d19a60' }}>console</span>.
+                  <span style={{ color: '#5fafef', fontWeight: 'bold' }}>
+                    log
+                  </span>
+                  <span style={{ color: '#c678dd' }}>(</span>
+                  <span style={{ color: '#e85352' }}>typeof</span>{' '}
+                  <span style={{ color: '#e85352' }}>typeof</span>{' '}
+                  <span style={{ color: '#d19a60' }}>1</span>
+                  <span style={{ color: '#c678dd' }}>)</span>;
+                </Text>
+              </Code> */}
+            </>
+          ),
           answers: [
             {
               id: 2.1,
-              slug: 1,
-              answer: 'SELECT',
-              correct: true
+              letter: 'a',
+              slug: 'answer-2.1',
+              answer: 'Number',
+              correct: false
             },
             {
               id: 2.2,
-              slug: 2,
-              answer: 'GET',
+              letter: 'b',
+              slug: 'answer-2.2',
+              answer: '1',
               correct: false
             },
             {
               id: 2.3,
-              slug: 3,
-              answer: 'OPEN',
+              letter: 'c',
+              slug: 'answer-2.3',
+              answer: 'String',
+              correct: true
+            },
+            {
+              id: 2.4,
+              letter: 'd',
+              slug: 'answer-2.4',
+              answer: 'Boolean',
               correct: false
             }
           ]
         },
         {
           id: 3,
-          slug: 'db-question-3',
-          question:
-            'Cila shprehje SQL terheq te gjitha kolonat nga tabela Person',
+          slug: 'js-question-3',
+          question: (
+            <>
+              <Text fontWeight={'semibold'}>
+                Cili do të jetë output-i i kodit të mëposhtëm?
+              </Text>
+              <Box w={'50%'}>
+                <Image src={javascript_3} alt={'javascript-3'} />
+              </Box>
+              {/* <Code>
+                <Box fontSize={'lg'}>
+                  <Text>
+                    <span style={{ color: '#c678dd' }}>let</span>{' '}
+                    <span style={{ color: '#e85352' }}>array</span> ={' '}
+                    <span>
+                      <span style={{ color: '#c678dd' }}>[</span>
+                      <span style={{ color: '#d19a60' }}>1</span>,{' '}
+                      <span style={{ color: '#d19a60' }}>2</span>,{' '}
+                      <span style={{ color: '#d19a60' }}>3</span>
+                      <span style={{ color: '#c678dd' }}>]</span>
+                    </span>
+                    ;
+                  </Text>
+                  <Text>
+                    <span style={{ color: '#e85352' }}>array</span>
+                    <span style={{ color: '#c678dd' }}>[</span>
+                    <span style={{ color: '#d19a60' }}>6</span>
+                    <span style={{ color: '#c678dd' }}>]</span> ={' '}
+                    <span style={{ color: '#d19a60' }}>9</span>;
+                  </Text>
+                  <Text>
+                    <span style={{ color: '#d19a60' }}>console</span>.
+                    <span style={{ color: '#5fafef', fontWeight: 'bold' }}>
+                      log
+                    </span>
+                    <span style={{ color: '#c678dd' }}>(</span>
+                    <span style={{ color: '#e85352' }}>array</span>
+                    <span style={{ color: '#5fafef' }}>[</span>
+                    <span style={{ color: '#d19a60' }}>9</span>
+                    <span style={{ color: '#5fafef' }}>]</span>
+                    <span style={{ color: '#c678dd' }}>)</span>;
+                  </Text>
+                </Box>
+              </Code> */}
+            </>
+          ),
           answers: [
             {
               id: 3.1,
-              slug: 1,
-              answer: 'SELECT * FROM Person  ',
-              correct: true
+              letter: 'a',
+              slug: 'answer-3.1',
+              answer: '1',
+              correct: false
             },
             {
               id: 3.2,
-              slug: 2,
-              answer: 'GET * FROM Person ',
+              letter: 'b',
+              slug: 'answer-3.2',
+              answer: '2',
               correct: false
             },
             {
               id: 3.3,
-              slug: 3,
-              answer: 'OPEN * FROM Person ',
+              letter: 'c',
+              slug: 'answer-3.3',
+              answer: '9',
+              correct: false
+            },
+            {
+              id: 3.4,
+              letter: 'd',
+              slug: 'answer-3.4',
+              answer: 'undefined',
+              correct: true
+            }
+          ]
+        },
+        {
+          id: 4,
+          slug: 'js-question-4',
+          question: (
+            <>
+              <Text fontWeight={'semibold'}>
+                Cili do të jetë output-i i kodit të mëposhtëm?
+              </Text>
+              <Box w={'50%'}>
+                <Image src={javascript_4} alt={'javascript-4'} />
+              </Box>
+            </>
+          ),
+          answers: [
+            {
+              id: 4.1,
+              letter: 'a',
+              slug: 'answer-4.1',
+              answer: '1 2 3 4',
+              correct: false
+            },
+            {
+              id: 4.2,
+              letter: 'b',
+              slug: 'answer-4.2',
+              answer: '2 3 4 1',
+              correct: false
+            },
+            {
+              id: 4.3,
+              letter: 'c',
+              slug: 'answer-4.3',
+              answer: '1 3 4 2',
+              correct: false
+            },
+            {
+              id: 4.4,
+              letter: 'd',
+              slug: 'answer-4.4',
+              answer: '2 4 3 1',
+              correct: true
+            }
+          ]
+        },
+        {
+          id: 5,
+          slug: 'js-question-5',
+          question: (
+            <>
+              <Text>Cili do të jetë output-i i kodit të mëposhtëm?</Text>
+              <Box w={'50%'}>
+                <Image src={javascript_5} alt={'javascript-5'} />
+              </Box>
+            </>
+          ),
+          answers: [
+            {
+              id: 5.1,
+              letter: 'a',
+              slug: 'answer-5.1',
+              answer: '[111, 44, 1, 22]',
+              correct: true
+            },
+            {
+              id: 5.2,
+              letter: 'b',
+              slug: 'answer-5.2',
+              answer: '[111, 44, 22, 1]',
+              correct: false
+            },
+            {
+              id: 5.3,
+              letter: 'c',
+              slug: 'answer-5.3',
+              answer: '[1, 44, 111, 22]',
+              correct: false
+            },
+            {
+              id: 5.4,
+              letter: 'd',
+              slug: 'answer-5.4',
+              answer: '[1, 44, 22, 111]'
+            }
+          ]
+        },
+        {
+          id: 6,
+          slug: 'js-question-6',
+          question: (
+            <Text>Çfarë bën metoda `toLocaleString()` në JavaScript?</Text>
+          ),
+          answers: [
+            {
+              id: 6.1,
+              letter: 'a',
+              slug: 'answer-6.1',
+              answer: 'Kthen një parsed string në formë JSON.',
+              correct: false
+            },
+            {
+              id: 6.2,
+              letter: 'b',
+              slug: 'answer-6.2',
+              answer: 'Kthen një paraqitje të lokalizuar të objektit.',
+              correct: false
+            },
+            {
+              id: 6.3,
+              letter: 'c',
+              slug: 'answer-6.3',
+              answer:
+                'Kthen një paraqitje të lokalizuar të vargut të një objekti në formën string.',
+              correct: true
+            },
+            {
+              id: 6.4,
+              letter: 'd',
+              slug: 'answer-6.4',
+              answer: 'Asnjë nga përgjigjet më lartë.',
+              correct: false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 6,
+      name: 'Multimedia',
+      slug: 'Multimedia',
+      description: 'Quiz per lenden Multimedia .',
+      // Questions for the quiz
+      questions: [
+        {
+          id: 1,
+          slug: 'Multimedia-question-1',
+          question:
+            'Elementi multimedial që shpjegon idenë përmes një fotografie quhet _____.',
+          answers: [
+            {
+              id: 1.1,
+              letter: 'a',
+              slug: 'answer-1.1',
+              answer: 'Graphics ',
+              correct: true
+            },
+            {
+              id: 1.2,
+              letter: 'b',
+              slug: 'answer-1.2',
+              answer: ' audio ',
+              correct: false
+            },
+            {
+              id: 1.3,
+              letter: 'c',
+              slug: 'answer-1.3',
+              answer: 'video',
+              correct: false
+            }
+          ]
+        },
+        {
+          id: 2,
+          slug: 'Multimedia-question-2',
+          question:
+            ' Inxhinierët dizajnojnë makina përpara se ti prodhojnë ato duke përdorur një aplikacion multimedial të quajtur____________',
+          answers: [
+            {
+              id: 2.1,
+              letter: 'a',
+              slug: 'answer-2.1',
+              answer: ' Computer-Aided Design',
+              correct: true
+            },
+            {
+              id: 2.2,
+              letter: 'b',
+              slug: 'answer-2.2',
+              answer: ' Auto-cad',
+              correct: false
+            },
+            {
+              id: 2.3,
+              letter: 'c',
+              slug: 'answer-2.3',
+              answer: ' Auto-Desk',
+              correct: false
+            }
+          ]
+        },
+        {
+          id: 3,
+          slug: 'Multimedia-question-3',
+          question: ' Skedarët me bitmap janë zakonisht',
+          answers: [
+            {
+              id: 3.1,
+              letter: 'a',
+              slug: 'answer-3.1',
+              answer: ' Madhesi skedari e madhe ',
+              correct: true
+            },
+            {
+              id: 3.2,
+              letter: 'b',
+              slug: 'answer-3.2',
+              answer: ' te pa compresuar ',
               correct: false
             }
           ]
         },
         {
           id: 4,
-          slug: 'db-question-4',
-          question: 'Kush eshte perdorimi me i shpeshte i JOIN?',
+          slug: 'Multimedia-question-4',
+          question:
+            'Elementi multimedial që bën objektin të lëvizë quhet _________.',
           answers: [
             {
               id: 4.1,
-              slug: 1,
-              answer: 'INNER JOIN   ',
+              letter: 'a',
+              slug: 'answer-4.1',
+              answer: ' Animacion',
               correct: true
             },
             {
               id: 4.2,
-              slug: 2,
-              answer: 'JOINED TABLE',
+              letter: 'b',
+              slug: 'answer-4.2',
+              answer: ' Video',
               correct: false
             },
             {
               id: 4.3,
-              slug: 3,
-              answer: 'JOINED',
+              letter: 'c',
+              slug: 'answer-4.3',
+              answer: ' Audio ',
               correct: false
             }
           ]
         },
         {
           id: 5,
-          slug: 'db-question-5',
-          question: 'Sintaksa per te krijuar nje tabele?',
+          slug: 'Multimedia-question-5',
+          question: 'CAM qëndron për___________',
           answers: [
             {
               id: 5.1,
-              slug: 1,
-              answer: 'CREATE TABLE emer_tabele',
+              letter: 'a',
+              slug: 'answer-5.1',
+              answer: ' Prodhim me ndihmën e kompjuterit',
               correct: true
             },
             {
               id: 5.2,
-              slug: 2,
-              answer: 'CREATE DATABASE TABLE emer_tabele',
+              letter: 'b',
+              slug: 'answer-5.2',
+              answer: ' aplikimi kompjuterik dhe marketingu',
               correct: false
             }
           ]

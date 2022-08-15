@@ -10,6 +10,7 @@
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@graphcms/rich-text-react-renderer": "^0.6.1",
     "@uiball/loaders": "^1.2.6",
     "formidable": "^2.0.1",
     "framer-motion": "^6.5.1",
