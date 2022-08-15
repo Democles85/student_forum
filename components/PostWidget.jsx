@@ -9,12 +9,17 @@ import { grpahCMSImageLoader } from '../util'
 
 const PostWidget = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([])
+  const [noRelatedPosts, setNoRelatedPosts] = useState(false)
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts(categories, slug).then((data) => setRelatedPosts(data))
+      getSimilarPosts(categories, slug).then((data) =>
+        data.length > 0 ? setRelatedPosts(data) : setNoRelatedPosts(true)
+      )
     } else {
-      getRecentPosts().then((data) => setRelatedPosts(data))
+      getRecentPosts().then((data) =>
+        data.length > 0 ? setRelatedPosts(data) : setNoRelatedPosts(true)
+      )
     }
   }, [slug])
 
@@ -23,6 +28,11 @@ const PostWidget = ({ categories, slug }) => {
       <h3 className={'text-xl mb-8 font-semibold border-b pb-4'}>
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
+      {noRelatedPosts === true && (
+        <p className={'text-center text-gray-700'}>
+          No posts found. Please check back later.
+        </p>
+      )}
       {relatedPosts.map((post) => (
         <div key={post.title} className={'flex items-center w-full mb-4'}>
           <div className={'w-16 flex-none'}>
