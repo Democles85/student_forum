@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   FormControl,
   FormLabel,
@@ -8,6 +9,7 @@ import {
   Textarea
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import Layout from '../components/layouts/title'
 
 const Contact = () => {
@@ -19,11 +21,10 @@ const Contact = () => {
   const [email, setEmail] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
-  const [file, setFile] = useState(null)
+  const [file, setFile] = useState('')
 
-  console.log(file)
+  console.log(file.toString('base64'))
 
-  const [errors, setErrors] = useState({})
   const [buttonText, setButtonText] = useState('Send')
 
   return (
@@ -126,6 +127,7 @@ const Contact = () => {
                     }}
                   />
                 </Box>
+                <Button type={'submit'}>{buttonText}</Button>
               </FormControl>
             </form>
           </Box>
