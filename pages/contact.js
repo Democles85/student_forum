@@ -4,7 +4,8 @@ import {
   FormControl,
   FormLabel,
   Heading,
-  Input
+  Input,
+  Textarea
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import Layout from '../components/layouts/title'
@@ -18,7 +19,9 @@ const Contact = () => {
   const [email, setEmail] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
-  const [file, setFile] = useState('')
+  const [file, setFile] = useState(null)
+
+  console.log(file)
 
   const [errors, setErrors] = useState({})
   const [buttonText, setButtonText] = useState('Send')
@@ -53,6 +56,75 @@ const Contact = () => {
                       }}
                     />
                   </Box>
+                  <Box
+                    width={formBoxWidth}
+                    px={formBoxPaddingX}
+                    py={formBoxPaddingY}
+                  >
+                    <FormLabel htmlFor="email">
+                      Email <span style={{ color: 'red' }}>*</span>
+                    </FormLabel>
+                    <Input
+                      id={'email'}
+                      value={email}
+                      placeholder={'Your Email'}
+                      onChange={(e) => {
+                        setEmail(e.target.value)
+                      }}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  width={formBoxWidth}
+                  px={formBoxPaddingX}
+                  py={formBoxPaddingY}
+                >
+                  <FormLabel htmlFor="subject">
+                    Subject <span style={{ color: 'red' }}>*</span>
+                  </FormLabel>
+                  <Input
+                    id={'subject'}
+                    value={subject}
+                    placeholder={'Subject'}
+                    onChange={(e) => {
+                      setSubject(e.target.value)
+                    }}
+                  />
+                </Box>
+                <Box
+                  width={formBoxWidth}
+                  px={formBoxPaddingX}
+                  py={formBoxPaddingY}
+                >
+                  <FormLabel htmlFor="message">
+                    Message <span style={{ color: 'red' }}>*</span>
+                  </FormLabel>
+                  <Textarea
+                    id={'message'}
+                    value={message}
+                    placeholder={'Message'}
+                    onChange={(e) => {
+                      setMessage(e.target.value)
+                    }}
+                  />
+                </Box>
+                <Box
+                  width={formBoxWidth}
+                  px={formBoxPaddingX}
+                  py={formBoxPaddingY}
+                >
+                  <FormLabel htmlFor="file">
+                    File <span style={{ color: 'red' }}>*</span>
+                  </FormLabel>
+                  <Input
+                    type={'file'}
+                    id={'file'}
+                    value={file}
+                    placeholder={'File'}
+                    onChange={(e) => {
+                      setFile(e.target.value)
+                    }}
+                  />
                 </Box>
               </FormControl>
             </form>
