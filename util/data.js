@@ -3,11 +3,11 @@ import Image from 'next/image'
 import Code from '../components/Code'
 
 // Image Imports
-import javascript_image_1 from '../public/images/quiz_images/javascript/console_log_1.png'
-import javascript_image_2 from '../public/images/quiz_images/javascript/console_log_2.png'
-import javascript_image_3 from '../public/images/quiz_images/javascript/console_log_3.png'
-import javascript_image_4 from '../public/images/quiz_images/javascript/console_log_4.png'
-import javascript_image_5 from '../public/images/quiz_images/javascript/array_rotation.png'
+import javascript_image_1 from '/public/images/quiz_images/javascript/console_log_1.png'
+import javascript_image_2 from '/public/images/quiz_images/javascript/console_log_2.png'
+import javascript_image_3 from '/public/images/quiz_images/javascript/console_log_3.png'
+import javascript_image_4 from '/public/images/quiz_images/javascript/console_log_4.png'
+import javascript_image_5 from '/public/images/quiz_images/javascript/array_rotation.png'
 
 const data = {
   quizzes: [
