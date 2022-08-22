@@ -20,7 +20,7 @@ const Categories = () => {
           <span
             className={`cursor-pointer block ${
               index === categories.length - 1 ? 'border-b-0' : 'border-b'
-            } pb-3 mb-3`}
+            } pb-3 mb-3 transition duration-500 hover:text-teal-500`}
           >
             {category.name}
           </span>

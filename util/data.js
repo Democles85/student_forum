@@ -3,11 +3,11 @@ import Image from 'next/image'
 import Code from '../components/Code'
 
 // Image Imports
-import javascript_1 from '../public/images/quiz_images/javascript/console_log_1.png'
-import javascript_2 from '../public/images/quiz_images/javascript/console_log_2.png'
-import javascript_3 from '../public/images/quiz_images/javascript/console_log_3.png'
-import javascript_4 from '../public/images/quiz_images/javascript/console_log_4.png'
-import javascript_5 from '../public/images/quiz_images/javascript/array_rotation.png'
+import javascript_image_1 from '../public/images/quiz_images/javascript/console_log_1.png'
+import javascript_image_2 from '../public/images/quiz_images/javascript/console_log_2.png'
+import javascript_image_3 from '../public/images/quiz_images/javascript/console_log_3.png'
+import javascript_image_4 from '../public/images/quiz_images/javascript/console_log_4.png'
+import javascript_image_5 from '../public/images/quiz_images/javascript/array_rotation.png'
 
 const data = {
   quizzes: [
@@ -600,7 +600,7 @@ const data = {
                 Çfarë shfaq ekzekutimi i kodit të mëposhtëm?
               </Text>
               <Box w={'50%'}>
-                <Image src={javascript_1} alt={'javascript-1'} />
+                <Image src={javascript_image_1} alt={'javascript-1'} />
               </Box>
               {/* <Code>
                 <Text fontSize={'lg'}>
@@ -656,7 +656,7 @@ const data = {
                 Çfarë shfaq ekzekutimi i kodit të mëposhtëm?
               </Text>
               <Box w={'50%'}>
-                <Image src={javascript_2} alt={'javascript-2'} />
+                <Image src={javascript_image_2} alt={'javascript-2'} />
               </Box>
               {/* <Code>
                 <Text fontSize={'lg'}>
@@ -713,7 +713,7 @@ const data = {
                 Cili do të jetë output-i i kodit të mëposhtëm?
               </Text>
               <Box w={'50%'}>
-                <Image src={javascript_3} alt={'javascript-3'} />
+                <Image src={javascript_image_3} alt={'javascript-3'} />
               </Box>
               {/* <Code>
                 <Box fontSize={'lg'}>
@@ -792,7 +792,7 @@ const data = {
                 Cili do të jetë output-i i kodit të mëposhtëm?
               </Text>
               <Box w={'50%'}>
-                <Image src={javascript_4} alt={'javascript-4'} />
+                <Image src={javascript_image_4} alt={'javascript-4'} />
               </Box>
             </>
           ),
@@ -834,7 +834,7 @@ const data = {
             <>
               <Text>Cili do të jetë output-i i kodit të mëposhtëm?</Text>
               <Box w={'50%'}>
-                <Image src={javascript_5} alt={'javascript-5'} />
+                <Image src={javascript_image_5} alt={'javascript-5'} />
               </Box>
             </>
           ),
@@ -893,8 +893,12 @@ const data = {
               id: 6.3,
               letter: 'c',
               slug: 'answer-6.3',
-              answer:
-                'Kthen një paraqitje të lokalizuar të vargut të një objekti në formën string.',
+              answer: (
+                <Text>
+                  Kthen një paraqitje të lokalizuar të vargut të një objekti në
+                  formën string.
+                </Text>
+              ),
               correct: true
             },
             {
@@ -1040,6 +1044,192 @@ const data = {
               letter: 'b',
               slug: 'answer-5.2',
               answer: ' aplikimi kompjuterik dhe marketingu',
+              correct: false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 7,
+      name: 'Termodinamikë',
+      slug: 'termodinamika',
+      description: 'Quiz për lëndën Termodinamika.',
+      questions: [
+        {
+          id: 1,
+          slug: 'termodinamika-question-1',
+          question: 'Termodinamika është studimi i:',
+          answers: [
+            {
+              id: 1.1,
+              letter: 'a',
+              slug: 'answer-1.1',
+              answer: 'Transferimit të energjisë?',
+              correct: true
+            },
+            {
+              id: 1.2,
+              letter: 'b',
+              slug: 'answer-1.2',
+              answer: 'Krijimit të energjisë?',
+              correct: false
+            },
+            {
+              id: 1.3,
+              letter: 'c',
+              slug: 'answer-1.3',
+              answer: 'Shpejtësisë së reaksionit?',
+              correct: false
+            },
+            {
+              id: 1.4,
+              letter: 'd',
+              slug: 'answer-1.4',
+              answer: 'Ndikimit të nxehtësisë në shpejtësinë e reaksionit?',
+              correct: false
+            }
+          ]
+        },
+        {
+          id: 2,
+          slug: 'termodinamika-question-2',
+          question: 'Temperatura është përllogaritja e:',
+          answers: [
+            {
+              id: 2.1,
+              letter: 'a',
+              slug: 'answer-2.1',
+              answer: 'Energjisë totale në një substancë?',
+              correct: false
+            },
+            {
+              id: 2.2,
+              letter: 'b',
+              slug: 'answer-2.2',
+              answer: 'Energjisë totale kinetike në një substancë?',
+              correct: false
+            },
+            {
+              id: 2.3,
+              letter: 'c',
+              slug: 'answer-2.3',
+              answer: 'Energjisë potenciale mesatare në një substancë?',
+              correct: false
+            },
+            {
+              id: 2.4,
+              letter: 'd',
+              slug: 'answer-2.4',
+              answer:
+                'Energjisë kinetike mesatare të molekulave në një substancë?',
+              correct: true
+            }
+          ]
+        },
+        {
+          id: 3,
+          slug: 'termodinamika-question-3',
+          question: 'Një substancë me nxehtësi specifike të lartë: ',
+          answers: [
+            {
+              id: 3.1,
+              letter: 'a',
+              slug: 'answer-3.1',
+              answer: 'Është gjithmonë ekstremisht e nxehtë?',
+              correct: false
+            },
+            {
+              id: 3.2,
+              letter: 'b',
+              slug: 'answer-3.2',
+              answer: 'Kerkon një sasi të madhe energjie të nxehet?',
+              correct: true
+            },
+            {
+              id: 3.3,
+              letter: 'c',
+              slug: 'answer-3.3',
+              answer: 'Nuk është e rëndë?',
+              correct: false
+            },
+            {
+              id: 3.4,
+              letter: 'd',
+              slug: 'answer-3.4',
+              answer: 'Nuk kërkon një sasi të madhe energjie të nxehet?',
+              correct: false
+            }
+          ]
+        },
+        {
+          id: 4,
+          slug: 'termodinamika-question-4',
+          question:
+            'Transferimi i energjisë termike midis objekteve me temperature të ndryshme quhet:',
+          answers: [
+            {
+              id: 4.1,
+              letter: 'a',
+              slug: 'answer-4.1',
+              answer: 'Temperaturë',
+              correct: false
+            },
+            {
+              id: 4.2,
+              letter: 'b',
+              slug: 'answer-4.2',
+              answer: 'Nxehtësi',
+              correct: true
+            },
+            {
+              id: 4.3,
+              letter: 'c',
+              slug: 'answer-4.3',
+              answer: 'Energji e brendshme',
+              correct: false
+            },
+            {
+              id: 4.4,
+              letter: 'd',
+              slug: 'answer-4.4',
+              answer: 'Asnjëra nga këto',
+              correct: false
+            }
+          ]
+        },
+        {
+          id: 5,
+          slug: 'termodinamika-question-5',
+          question:
+            'Formula e saktë për të konvertuar Celcius në Kelvin është:',
+          answers: [
+            {
+              id: 5.1,
+              letter: 'a',
+              slug: 'answer-5.1',
+              answer: 'K = C - 273',
+              correct: false
+            },
+            {
+              id: 5.2,
+              letter: 'b',
+              slug: 'answer-5.2',
+              answer: 'K = C + 273',
+              correct: true
+            },
+            {
+              id: 5.3,
+              letter: 'c',
+              slug: 'answer-5.3',
+              answer: 'K = C * 1.8 + 32',
+              correct: false
+            },
+            {
+              id: 5.4,
+              letter: 'd',
+              slug: 'answer-5.4',
+              answer: 'K = C + 100',
               correct: false
             }
           ]

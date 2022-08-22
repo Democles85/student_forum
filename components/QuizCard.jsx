@@ -9,12 +9,16 @@ const QuizCard = () => {
       <h3 className={'text-lg mb-8 font-semibold border-b pb-4'}>Quizzes</h3>
 
       {/* Mapping of the quizzes in the data file created in the util folder with the map() function */}
-      {data.quizzes.map((quiz) => (
-        <Link href={`/quizzes/${quiz.slug}`} style={{ textDecoration: 'none' }}>
+      {data.quizzes.map((quiz, index) => (
+        <Link
+          href={`/quizzes/${quiz.slug}`}
+          style={{ textDecoration: 'none' }}
+          key={index}
+        >
           <span
-            className={
-              'cursor-pointer block pb-3 mb-3 transition duration-500 hover:text-teal-500'
-            }
+            className={`cursor-pointer block ${
+              index === data.quizzes.length - 1 ? 'border-b-0' : 'border-b'
+            } pb-3 mb-3 transition duration-500 hover:text-teal-500`}
           >
             <Text key={quiz.id}>{quiz.name}</Text>
           </span>

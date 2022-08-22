@@ -8,7 +8,8 @@ import {
   ListItem,
   Text,
   Alert,
-  AlertIcon
+  AlertIcon,
+  SimpleGrid
 } from '@chakra-ui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
@@ -178,7 +179,7 @@ const Quiz = () => {
   return (
     <Layout title={`${quiz.name}`}>
       <Box px={12} mb={10}>
-        <Box px={5} p={10} bg={'white'} borderRadius={'lg'}>
+        <Box px={5} p={10} bg={'white'} borderRadius={'lg'} w={'full'}>
           <Heading
             as="h1"
             fontSize={'5xl'}
@@ -190,66 +191,74 @@ const Quiz = () => {
           </Heading>
 
           {/* Check if the question belongs to the specific quiz */}
-          {questions.map((question) => {
-            if (question.slug === `${quiz.slug}-question-${question.id}`) {
-              return (
-                <Box key={question.id}>
-                  <List>
-                    <ListItem>
-                      <Box display={'flex'} flexDir={'row'} pb={3}>
-                        <Text fontSize={'xl'} fontWeight={'semibold'} pr={2}>
-                          {question.id}.
-                        </Text>
-                        <Text fontSize={'xl'}>{question.question}</Text>
-                      </Box>
-                    </ListItem>
-                  </List>
-                  <Box>
-                    {question.answers.map((answer) => {
-                      return (
-                        <Box key={answer.id} pb={2} pl={5}>
-                          <Button
-                            colorScheme={
-                              colorScheme.find(
-                                (color) => color.id === answer.id
-                              )
-                                ? colorScheme.find(
-                                    (color) => color.id === answer.id
-                                  ).color
-                                : colorScheme[0].color
-                            }
-                            variant={'outline'}
-                            onClick={() => {
-                              handleCurrentAnswer(
-                                answer.id,
-                                answer.slug,
-                                question.id,
-                                answer.correct
-                              )
-                              // console.log(answer.id, answer.slug, question.id, answer.correct)
-                            }}
-                          >
-                            <Box display={'flex'} flexDir={'row'}>
-                              <Text
-                                fontSize={'lg'}
-                                fontWeight={'semibold'}
-                                pr={2}
-                              >
-                                {answer.letter})
-                              </Text>
-                              <Text fontSize={'lg'} fontWeight={'medium'}>
-                                {answer.answer}
-                              </Text>
-                            </Box>
-                          </Button>
+          <SimpleGrid columns={{ sm: 1, lg: 2 }} spacing={'40px'}>
+            {questions.map((question) => {
+              if (question.slug === `${quiz.slug}-question-${question.id}`) {
+                return (
+                  <Box key={question.id}>
+                    <List>
+                      <ListItem>
+                        <Box display={'flex'} flexDir={'row'} pb={3}>
+                          <Text fontSize={'xl'} fontWeight={'semibold'} pr={2}>
+                            {question.id}.
+                          </Text>
+                          <Text fontSize={'xl'}>{question.question}</Text>
                         </Box>
-                      )
-                    })}
+                      </ListItem>
+                    </List>
+                    <Box>
+                      {question.answers.map((answer) => {
+                        return (
+                          <Box key={answer.id} pb={2} pl={5}>
+                            <Button
+                              colorScheme={
+                                colorScheme.find(
+                                  (color) => color.id === answer.id
+                                )
+                                  ? colorScheme.find(
+                                      (color) => color.id === answer.id
+                                    ).color
+                                  : colorScheme[0].color
+                              }
+                              w={'100%'}
+                              variant={'outline'}
+                              onClick={() => {
+                                handleCurrentAnswer(
+                                  answer.id,
+                                  answer.slug,
+                                  question.id,
+                                  answer.correct
+                                )
+                                // console.log(answer.id, answer.slug, question.id, answer.correct)
+                              }}
+                            >
+                              <Box
+                                display={'flex'}
+                                flexDir={'row'}
+                                w={'100%'}
+                                fontSize={{ sm: 'sm', md: 'md', lg: 'lg' }}
+                              >
+                                <Text
+                                  fontWeight={'semibold'}
+                                  pr={2}
+                                  w={'fit-content'}
+                                >
+                                  {answer.letter})
+                                </Text>
+                                <Text fontWeight={'medium'} w={'fit-content'}>
+                                  {answer.answer}
+                                </Text>
+                              </Box>
+                            </Button>
+                          </Box>
+                        )
+                      })}
+                    </Box>
                   </Box>
-                </Box>
-              )
-            }
-          })}
+                )
+              }
+            })}
+          </SimpleGrid>
           <Box pt={10} pb={5} align={'center'}>
             <Button
               width={'40%'}

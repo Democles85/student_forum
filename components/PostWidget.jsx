@@ -29,7 +29,7 @@ const PostWidget = ({ categories, slug }) => {
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
       {noRelatedPosts === true && (
-        <p className={'text-center text-gray-700'}>
+        <p className={'text-center text-gray-700 mb-4'}>
           No posts found. Please check back later.
         </p>
       )}
