@@ -1,4 +1,3 @@
-import 'tailwindcss/tailwind.css'
 import '../styles/globals.scss'
 import { Layout } from '../components'
 
