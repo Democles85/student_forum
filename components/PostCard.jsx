@@ -74,7 +74,7 @@ function PostCard({ post }) {
               'transition duration-500 transform hover:-translate-y-1 inline-block bg-teal-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer'
             }
           >
-            Read More
+            Lexo më Shumë
           </a>
         </Link>
       </div>

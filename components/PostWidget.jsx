@@ -26,11 +26,11 @@ const PostWidget = ({ categories, slug }) => {
   return (
     <div className={'bg-white shadow-lg rounded-lg p-8 mb-8'}>
       <h3 className={'text-xl mb-8 font-semibold border-b pb-4'}>
-        {slug ? 'Related Posts' : 'Recent Posts'}
+        {slug ? 'Postimet e Ngjashme' : 'Postimet e Fundit'}
       </h3>
       {noRelatedPosts === true && (
         <p className={'text-center text-gray-700 mb-4'}>
-          No posts found. Please check back later.
+          Postime të ngjashme nuk u gjetën. Ju lutem kthehuni më vonë.
         </p>
       )}
       {relatedPosts.map((post) => (

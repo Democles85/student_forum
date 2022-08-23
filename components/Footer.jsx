@@ -30,7 +30,7 @@ const Footer = () => {
           fontWeight={'bold'}
           textShadow={'5px 3px 7px rgba(0, 0, 0, 0.3)'}
         >
-          Created By:
+          Krijuar nga:
         </Text>
       </Box>
       <Box py={5}>
@@ -74,7 +74,7 @@ const Footer = () => {
               border={'1px solid rgba( 255, 255, 255, 0.18 )'}
               borderRadius={'lg'}
             >
-              Enid Muharremi
+              Enid Muharemi
             </Text>
           </GridItem>
           <GridItem w={'100%'}>
@@ -96,7 +96,7 @@ const Footer = () => {
 
       <Box pt={5}>
         <Text fontWeight={'semibold'}>
-          &copy; {new Date().getFullYear()} Student Forum
+          &copy; {new Date().getFullYear()} Univlora Student Forum
         </Text>
       </Box>
     </Box>

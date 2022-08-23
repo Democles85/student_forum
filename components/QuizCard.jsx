@@ -6,7 +6,7 @@ import data from '../util/data'
 const QuizCard = () => {
   return (
     <div className={'bg-white shadow-lg rounded-lg p-8 mb-8'}>
-      <h3 className={'text-lg mb-8 font-semibold border-b pb-4'}>Quizzes</h3>
+      <h3 className={'text-lg mb-8 font-semibold border-b pb-4'}>Pyetësor</h3>
 
       {/* Mapping of the quizzes in the data file created in the util folder with the map() function */}
       {data.quizzes.map((quiz, index) => (
