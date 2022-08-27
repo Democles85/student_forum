@@ -2,6 +2,7 @@ import { Box, Image } from '@chakra-ui/react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { getCategories } from '../services'
+import ContactUs from './ContactUs'
 
 function Header() {
   const [categories, setCategories] = useState([])
@@ -38,7 +39,7 @@ function Header() {
             h={'inherit'}
           >
             <div className={'hidden md:float-left md:contents'}>
-              {categories.map((category) => (
+              {/* {categories.map((category) => (
                 <Link href={`/category/${category.slug}`} key={category.slug}>
                   <span
                     className={
@@ -48,7 +49,8 @@ function Header() {
                     {category.name}
                   </span>
                 </Link>
-              ))}
+              ))} */}
+              <ContactUs />
             </div>
           </Box>
         </Box>
