@@ -59,10 +59,14 @@ const PostDetail = ({ post }) => {
               ),
               p: ({ children }) => <Box className={'my-2'}>{children}</Box>,
               h3: ({ children }) => (
-                <h3 className={'text-xl font-semibold mb-4'}>{children}</h3>
+                <h3 className={'text-xl font-semibold pb-2 pt-5'}>
+                  {children}
+                </h3>
               ),
               h1: ({ children }) => (
-                <h1 className={'text-3xl font-semibold mb-4'}>{children}</h1>
+                <h1 className={'text-3xl font-semibold pb-4 pt-8'}>
+                  {children}
+                </h1>
               ),
               table: ({ children }) => (
                 <table

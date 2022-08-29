@@ -9,10 +9,12 @@ import {
   Text,
   Alert,
   AlertIcon,
-  SimpleGrid
+  SimpleGrid,
+  Icon
 } from '@chakra-ui/react'
 import { AnimatePresence, motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { GrPowerReset } from 'react-icons/gr'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -42,6 +44,8 @@ const Quiz = () => {
   const [score, setScore] = useState(0)
   const [showAlert, setShowAlert] = useState(false)
   const [showScore, setShowScore] = useState(false)
+  const [disabled, setDisabled] = useState(false)
+  const [showResetButton, setShowResetButton] = useState(false)
 
   const handleCurrentAnswer = (
     answerID,
@@ -95,7 +99,8 @@ const Quiz = () => {
     }
   }
 
-  // TODO: Add score to quiz
+  // TODO: Add Reset button to reset the quiz and also make the buttons
+  // disable on submit
   const handleScore = (answers) => {
     let score = 0
 
@@ -112,7 +117,10 @@ const Quiz = () => {
       return
     }
 
+    // Show Score, Disable Buttons and Show Reset Quiz Button
     setShowScore(true)
+    setDisabled(true)
+    setShowResetButton(true)
 
     answers.map((answer) => {
       // If the answer is correct, increase the score by 1
@@ -211,6 +219,7 @@ const Quiz = () => {
                         return (
                           <Box key={answer.id} pb={2} pl={5}>
                             <Button
+                              isDisabled={disabled}
                               colorScheme={
                                 colorScheme.find(
                                   (color) => color.id === answer.id
@@ -259,19 +268,41 @@ const Quiz = () => {
               }
             })}
           </SimpleGrid>
-          <Box pt={10} pb={5} align={'center'}>
-            <Button
-              width={'40%'}
-              variant={'solid'}
-              size={'lg'}
-              fontSize={'26px'}
-              colorScheme={'teal'}
-              onClick={() => {
-                handleScore(currentAnswer)
-              }}
-            >
-              Submit
-            </Button>
+          <Box
+            pt={10}
+            pb={5}
+            display={'flex'}
+            flexDir={'row'}
+            w={'100%'}
+            justifyContent={'center'}
+          >
+            <Box>
+              <Button
+                width={'100%'}
+                variant={'solid'}
+                size={'lg'}
+                fontSize={'26px'}
+                colorScheme={'teal'}
+                onClick={() => {
+                  handleScore(currentAnswer)
+                }}
+              >
+                Submit
+              </Button>
+            </Box>
+            {showResetButton && (
+              <Box pl={5}>
+                <Button
+                  size={'lg'}
+                  variant={'solid'}
+                  onClick={() => {
+                    window.location.reload()
+                  }}
+                >
+                  <Icon as={GrPowerReset} />
+                </Button>
+              </Box>
+            )}
           </Box>
           <Box py={5} display={'flex'} justifyContent={'center'}>
             <AnimatePresence>
