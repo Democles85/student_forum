@@ -1233,6 +1233,77 @@ const data = {
               correct: false
             }
           ]
+        },
+        {
+          id: 6,
+          slug: 'termodinamika-question-6',
+          question:
+            'Sasia e nxehtësisë e kërkuar për të rritur temperaturën e 1g të diçkaje me 1°C quhet:',
+          answers: [
+            {
+              id: 6.1,
+              letter: 'a',
+              slug: 'answer-6.1',
+              answer: 'Nxehtësi latente',
+              correct: false
+            },
+            {
+              id: 6.2,
+              letter: 'b',
+              slug: 'answer-6.2',
+              answer: 'Nxehtësi formimi',
+              correct: false
+            },
+            {
+              id: 6.3,
+              letter: 'c',
+              slug: 'answer-6.3',
+              answer: 'Nxehtësi specifike',
+              correct: true
+            },
+            {
+              id: 6.4,
+              letter: 'd',
+              slug: 'answer-6.4',
+              answer: 'Nxehtësi bashkimi',
+              correct: false
+            }
+          ]
+        },
+        {
+          id: 7,
+          slug: 'termodinamika-question-7',
+          question: 'ΔT përfaqëson:',
+          answers: [
+            {
+              id: 7.1,
+              letter: 'a',
+              slug: 'answer-7.1',
+              answer: 'Masën',
+              correct: false
+            },
+            {
+              id: 7.2,
+              letter: 'b',
+              slug: 'answer-7.2',
+              answer: 'Ndryshimin e temperaturës',
+              correct: true
+            },
+            {
+              id: 7.3,
+              letter: 'c',
+              slug: 'answer-7.3',
+              answer: 'Nxehtësinë latente',
+              correct: false
+            },
+            {
+              id: 7.4,
+              letter: 'd',
+              slug: 'answer-7.4',
+              answer: 'Nxehtësinë specifike',
+              correct: false
+            }
+          ]
         }
       ]
     }

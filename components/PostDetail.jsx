@@ -98,7 +98,7 @@ const PostDetail = ({ post }) => {
               code: ({ children }) => (
                 <code
                   className={
-                    'bg-gray-100 text-gray-900 dark:text-gray-200 p-1 rounded-md font-semibold'
+                    'bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-200 p-1 rounded-md font-semibold'
                   }
                 >
                   {children}
@@ -108,7 +108,7 @@ const PostDetail = ({ post }) => {
                 <Box py={3}>
                   <pre
                     className={
-                      'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200 p-4 rounded-lg'
+                      'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200 p-4 rounded-lg overflow-auto'
                     }
                   >
                     {children}

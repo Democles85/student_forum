@@ -1,4 +1,4 @@
-import { Box, Image } from '@chakra-ui/react'
+import { Box, Image, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { getCategories } from '../services'
@@ -27,7 +27,15 @@ function Header() {
                     'text-4xl font-bold text-white cursor-pointer ml-4'
                   }
                 >
-                  Univlora Student Forum
+                  <Text
+                    fontSize={{
+                      base: 'xl',
+                      md: '2xl',
+                      lg: '3xl'
+                    }}
+                  >
+                    Univlora Student Forum
+                  </Text>
                 </a>
               </Box>
             </Link>

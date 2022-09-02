@@ -43,7 +43,6 @@ const Quiz = () => {
   ])
   const [score, setScore] = useState(0)
   const [showAlert, setShowAlert] = useState(false)
-  const [showScore, setShowScore] = useState(false)
   const [disabled, setDisabled] = useState(false)
   const [showResetButton, setShowResetButton] = useState(false)
 
@@ -106,10 +105,6 @@ const Quiz = () => {
 
     if (answers.length < questionsLength) {
       setShowAlert(true)
-      setShowScore(true)
-      setTimeout(() => {
-        setShowScore(false)
-      }, 3000)
 
       setTimeout(() => {
         setShowAlert(false)
@@ -118,7 +113,6 @@ const Quiz = () => {
     }
 
     // Show Score, Disable Buttons and Show Reset Quiz Button
-    setShowScore(true)
     setDisabled(true)
     setShowResetButton(true)
 
@@ -341,16 +335,14 @@ const Quiz = () => {
             >
               Score:{' '}
               <AnimatePresence>
-                {showScore && (
-                  <motion.span
-                    initial={{ y: 10, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1, delay: 0.5 }}
-                    exit={{ y: 10, opacity: 0, duration: 0.5 }}
-                    transition={'all 0.5s ease-in-out'}
-                  >
-                    {score}
-                  </motion.span>
-                )}
+                <motion.span
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1, delay: 0.5 }}
+                  exit={{ y: 10, opacity: 0, duration: 0.5 }}
+                  transition={'all 0.5s ease-in-out'}
+                >
+                  {score}
+                </motion.span>
               </AnimatePresence>{' '}
               / {questionsLength}
             </Text>
